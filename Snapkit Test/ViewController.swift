@@ -29,9 +29,15 @@ class ViewController: UIViewController {
         return view
     }()
     
-    let button: UIButton = {
+    let printButton: UIButton = {
         let view = UIButton(configuration: .tinted())
-        view.setTitle("Click Me", for: .normal)
+        view.setTitle("Print Text", for: .normal)
+        return view
+    }()
+    
+    let pushButton: UIButton = {
+        let view = UIButton(configuration: .tinted())
+        view.setTitle("Next Page", for: .normal)
         return view
     }()
     
@@ -42,13 +48,26 @@ class ViewController: UIViewController {
         return view
     }()
     
+    let stackView: UIStackView = {
+        let view = UIStackView()
+        view.axis = .horizontal
+        view.alignment = .fill
+        view.distribution = .fillEqually
+        view.spacing = 50
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .white
+        title = "First Page"
+        navigationController?.navigationBar.prefersLargeTitles = true
+
         view?.addSubview(greenBox)
         greenBox.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
-            make.left.right.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.left.right.equalToSuperview().inset(20)
             make.height.equalTo(40)
         }
 
@@ -65,16 +84,20 @@ class ViewController: UIViewController {
             make.left.right.equalToSuperview().inset(20)
         }
         
-        view.addSubview(button)
-        button.snp.makeConstraints { make in
+        stackView.addArrangedSubview(printButton)
+        stackView.addArrangedSubview(pushButton)
+        view.addSubview(stackView)
+        stackView.snp.makeConstraints { make in
             make.top.equalTo(textfield.snp.bottom).offset(20)
-            make.centerX.equalToSuperview()
+            make.left.right.equalToSuperview().inset(20)
         }
-        button.addTarget(self, action: #selector(logText), for: .touchUpInside)
+
+        printButton.addTarget(self, action: #selector(logText), for: .touchUpInside)
+        pushButton.addTarget(self, action: #selector(pushNavigation), for: .touchUpInside)
         
         view.addSubview(label)
         label.snp.makeConstraints { make in
-            make.top.equalTo(button.snp.bottom).offset(40)
+            make.top.equalTo(stackView.snp.bottom).offset(40)
             make.left.right.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         
@@ -83,6 +106,11 @@ class ViewController: UIViewController {
     @objc func logText() -> Void {
         print("Button is clicked: \(textfield.text!)")
         label.text = textfield.text
+    }
+
+    @objc func pushNavigation() -> Void {
+        let destVC = SecondViewController()
+        self.navigationController?.pushViewController(destVC, animated: true)
     }
 
 

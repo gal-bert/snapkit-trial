@@ -41,6 +41,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="wGN-o1-92u">
+                                <rect key="frame" x="20" y="172" width="374" height="31"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yx-0b-fkD">
+                                        <rect key="frame" x="0.0" y="0.0" width="137" height="31"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lub-dv-iWi">
+                                        <rect key="frame" x="237" y="0.0" width="137" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="Button"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oSj-sh-rql"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -49,7 +63,10 @@
                             <constraint firstItem="Wj6-a4-Q3E" firstAttribute="top" secondItem="J95-Yx-Dco" secondAttribute="bottom" constant="20" id="F3Z-dW-XHE"/>
                             <constraint firstItem="oSj-sh-rql" firstAttribute="trailing" secondItem="J95-Yx-Dco" secondAttribute="trailing" constant="20" id="Gfu-F0-8GU"/>
                             <constraint firstItem="J95-Yx-Dco" firstAttribute="top" secondItem="oSj-sh-rql" secondAttribute="top" constant="20" id="Tig-Kq-jCR"/>
+                            <constraint firstItem="oSj-sh-rql" firstAttribute="trailing" secondItem="wGN-o1-92u" secondAttribute="trailing" constant="20" id="WJt-Lg-Scx"/>
+                            <constraint firstItem="wGN-o1-92u" firstAttribute="leading" secondItem="oSj-sh-rql" secondAttribute="leading" constant="20" id="Whc-Vx-ELY"/>
                             <constraint firstItem="J95-Yx-Dco" firstAttribute="leading" secondItem="oSj-sh-rql" secondAttribute="leading" constant="20" id="jzg-CN-gWz"/>
+                            <constraint firstItem="wGN-o1-92u" firstAttribute="top" secondItem="Wj6-a4-Q3E" secondAttribute="bottom" constant="20" id="nkx-vC-0Xa"/>
                             <constraint firstItem="Wj6-a4-Q3E" firstAttribute="leading" secondItem="oSj-sh-rql" secondAttribute="leading" constant="20" id="y9z-0I-M1f"/>
                         </constraints>
                     </view>
